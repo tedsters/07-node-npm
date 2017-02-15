@@ -4,9 +4,10 @@
 
 // DONE: Require the Express package that you installed via NPM, and instantiate the app
 // Remember to install express, and be sure that it's been added to your package.json as a dependency
-const express = required ('express');
-const PORT = process.env.PORT || 3000;
 
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
 // DONE: Include all of the static resources as an argument to app.use()
 app.use(express.static('./public'));
 app.get('*', function(request, response) {
@@ -16,7 +17,7 @@ app.get('*', function(request, response) {
 
 
 // DONE: (STRETCH) Write a new route that will handle a request and send the new.html file back to the user
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
 app.get('', function(request, response){
   response.sendFile('public/new.html', {root: '.'})
 })
